@@ -114,6 +114,10 @@ article {
 
 }
 
+section form {
+    max-width: 368px;
+}
+
 /* PAG LOGIN */ 
 
 .login { 
@@ -132,7 +136,25 @@ article {
 }
 
 .login-container img {
-    width: 100px;
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #3f3e3e;
+}
+
+.login-container input[type="submit"] {
+    width: 100%;
+}
+
+.login-container a {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: blue;
+    text-decoration: none;
 }
 
 input[type="email"], input[type="password"], input[type="text"]{
@@ -176,4 +198,29 @@ form div {
 
 footer {
     text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #666;
+
+}
+
+@media (max-width: 768px) {
+    body {
+        height: 100%;
+        overflow: auto;
+    }
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    main {
+        flex-direction: column;
+    }
+    nav {
+        border-bottom: 2px solid #ccc;
+    }
+    
+
+
 }
