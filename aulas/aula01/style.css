@@ -203,6 +203,12 @@ form div {
     align-items: center;
     margin-bottom: 30px;
 }
+/* PERFIL */
+
+.perfil {
+   margin: 20px;
+   margin-top: 0;
+}
 
 /* FOOTER */
 
