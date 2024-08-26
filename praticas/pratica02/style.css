@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif; 
+}
+
+body {
+    background-color: azure;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* HEADER */ 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: blue;
+    color: white;
+}
+
+header h1 {
+    /* NÃO PASSADO PELO PROFESSOR */
+    margin: 10px;
+}
+
+header div {
+    align-items: center;
+    display: flex;
+}
+
+header img {
+    width: 35px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+header input[type="search"]{
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin-right: 16px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    background-color: white;
+}
+
+nav {
+    flex: 1;
+    padding: 8px;
+    border-right: 2px solid #ccc;
+}
+
+nav ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+nav ul li {
+    margin-bottom: 16px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    padding: 8px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: blue;
+    color: white;
+}
+
+nav ul li a.active {
+    background-color: blue;
+    color: white;
+}
+
+/* PAG */
+
+section {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+section h2 {
+    /* NÃO PASSADO PELO PROFESSOR */
+    margin: 5px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+section h3 {
+    border-radius: 5px;
+    color: #2375e0;
+    background-color: #a3cbff;
+    margin: 5px;
+    padding: 5px;
+    font-size: 16px;
+
+}
+
+section ul {
+    list-style: none;
+    margin: 10px;
+}
+
+section li {
+    font-size: 14px;
+}
+
+section form {
+    max-width: 368px;
+}
+
+/* PAG LOGIN */ 
+
+.login { 
+    background-color: rgb(203, 203, 252);
+    /* NÃO PASSADO PELO PROFESSOR */ 
+}
+
+.login-container {
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    margin: 16px auto;
+    padding: 10px; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-container img {
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #3f3e3e;
+}
+
+.login-container input[type="submit"] {
+    width: 100%;
+}
+
+.login-container a {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: blue;
+    text-decoration: none;
+}
+
+input[type="email"], input[type="password"], input[type="text"]{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+input[type="submit"]{
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: blue;
+    color:white;
+    width: 100%;
+}
+
+/* NÃO PASSADO PELO PROFESSOR */ 
+form a {
+    text-decoration: none;
+}
+
+form div {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.img {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+/* PERFIL */
+
+.perfil {
+   margin: 20px;
+   margin-top: 0;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #666;
+
+}
+
+@media (max-width: 768px) {
+    body {
+        height: 100%;
+        overflow: auto;
+    }
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    main {
+        flex-direction: column;
+    }
+    nav {
+        border-bottom: 2px solid #ccc;
+    }
+    
+
+
+}
