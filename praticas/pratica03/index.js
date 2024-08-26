@@ -1,6 +1,27 @@
 const root = document.getElementById("root");
 
 /* componentes */
+function Cabecalho() {
+    const logo = Icone(
+      "https://www.svgrepo.com/show/411955/learn.svg",
+      "Logo da Aplicação"
+    );
+    const titulo = Titulo("Aluno Online");
+    const grupo1 = document.createElement("div");
+    grupo1.append(logo, titulo);
+
+    const input = InputSearch();
+    const icone = Icone(
+      "https://www.svgrepo.com/show/507851/search-square.svg",
+      "Ícone de Pesquisar"
+    );
+    const grupo2 = document.createElement("div");
+    grupo2.append(input, icone);
+
+    const header = document.createElement("header");
+    header.append(grupo1, grupo2);
+    return header;
+}
 
 function Conteudo(...elementos) {
     const main = document.createElement("main");
@@ -17,13 +38,6 @@ function Rodape(texto) {
 }
 
 function Icone(origem, texto){
-    const img = document.createElement("img");
-    img.setAttribute("src", origem);
-    img.setAttribute("alt", texto);
-    return img;
-}
-
-function Imagem(origem, texto) {
     const img = document.createElement("img");
     img.setAttribute("src", origem);
     img.setAttribute("alt", texto);
@@ -64,17 +78,12 @@ function Botao(texto) {
 }
 
 function Link(texto, rota) {
-    const a = document.createElement("a");
-    a.setAttribute("href", rota);
-    a.innerText = texto;
-    return a;
+   const a = document.createElement("a");
+   a.setAttribute("href", rota);
+   a.innerText = texto;
+   return a;
 }
 
-function onLogin(event){
-    event.preventDefault();
-    Navega("/home");
-}
- 
 function Menu() {
     const opcoes = [
        {menu: "Home", rota: "/home"},
@@ -92,7 +101,7 @@ function Menu() {
         const item = document.createElement("li");
         item.append(link);
         lista.append(item);        
-    });
+    })
     const nav = document.createElement("nav");
     nav.append(lista);
     return nav;
@@ -109,23 +118,6 @@ function Secao(nome, conteudo) {
     const section = document.createElement("section");
     section.append(titulo, conteudo);
     return section;
-}
-  
-function PageHome() {
-    const menu = Menu();
-    const grupo = document.createElement("div");
-    const itens = [
-      "Mural de Avisos",
-      "Agenda Acadêmica",
-      "Histórico de Notas",
-      "Histórico de Faltas",
-    ];
-    itens.forEach((item) => grupo.append(Painel(item))); // A função Painel não está definida no código original.
-    const secao = Secao("Página Inicial", grupo);
-    const conteudo = Conteudo(menu, secao);
-    const cabecalho = Cabecalho();
-    root.append(cabecalho, conteudo);
-    document.title = "Home - Aluno Online";
 }
 
 /* ferramentas */
@@ -149,48 +141,24 @@ function InputSearch(){
     return input;
 }
 
-function Cabecalho() {
-    const logo = Icone(
-      "https://www.svgrepo.com/show/411955/learn.svg",
-      "Logo da Aplicação"
-    );
-    const titulo = Titulo("Aluno Online");
-    const grupo1 = document.createElement("div");
-    grupo1.append(logo, titulo);
-    const input = InputSearch();
-    const icone = Icone(
-      "https://www.svgrepo.com/show/507851/search-square.svg",
-      "Ícone de Pesquisar"
-    );
-    const grupo2 = document.createElement("div");
-    grupo2.append(input, icone);
-    const header = document.createElement("header");
-    header.append(grupo1, grupo2);
-    return header;
-}
-
-/* páginas */
+/* paginas */
 function FormLogin() {
     const email = Input("email", "email", "E-mail");
     const senha = Input("senha", "password", "Senha");
     const entrar = Botao("Entrar");
     entrar.addEventListener("click", (event) => {
         alert("Clicou!");
-    });
+    })
     const form = document.createElement("form");
     form.setAttribute("method", "post");
     form.setAttribute("action", "/login");
     form.append(email, senha, entrar);
     form.addEventListener("submit", (event) => {
         event.preventDefault();
+        // chamar o backend
         navega("/home");
-    });
+    })
     return form;
-}
-
-function onClickMenu(event){
-    event.preventDefault();
-    navega(event.target.getAttribute("href"));
 }
 
 function onSalvar(event){
@@ -210,13 +178,13 @@ function PageLogin(){
 }
 
 function FormPerfil() {
-    const form = document.createElement("form");
-    form.setAttribute("action", "/perfil");
-    form.setAttribute("method", "post");
     const inputNome = Input("nome", "text", "Nome");
     const inputEmail = Input("email", "email", "E-mail");
     const inputSenha = Input("senha", "password", "Senha");
     const inputSalvar = InputSubmit("Salvar");
+    const form = document.createElement("form");
+    form.setAttribute("action", "/perfil");
+    form.setAttribute("method", "post");
     form.append(inputNome, inputEmail, inputSenha, inputSalvar);
     form.addEventListener("submit", onSalvar);
     return form;
@@ -230,6 +198,23 @@ function PagePerfil() {
     const cabecalho = Cabecalho();
     root.append(cabecalho, conteudo);
     document.title = "Perfil - Aluno Online";
+}
+
+function PageHome() {
+    const menu = Menu();
+    const grupo = document.createElement("div");
+    const itens = [
+      "Mural de Avisos",
+      "Agenda Acadêmica",
+      "Histórico de Notas",
+      "Histórico de Faltas",
+    ];
+    itens.forEach((item) => grupo.append(item));
+    const secao = Secao("Página Inicial", grupo);
+    const conteudo = Conteudo(menu, secao);
+    const cabecalho = Cabecalho();
+    root.append(cabecalho, conteudo);
+    document.title = "Home - Aluno Online";
 }
 
 navega("/login");
